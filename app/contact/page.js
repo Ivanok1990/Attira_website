@@ -9,82 +9,115 @@ export default function ContactPage() {
     message: "",
   });
 
+  const [isSubmitting, setIsSubmitting] = useState(false);
+
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
   const handleSubmit = (e) => {
     e.preventDefault();
+    setIsSubmitting(true);
+
     console.log(form);
-    // 👉 aquí puedes conectar Supabase o email service
+    // Aquí conectarás Supabase, Resend u otro servicio
+
+    // Simulación de envío
+    setTimeout(() => {
+      alert("¡Mensaje enviado! Te responderemos lo antes posible.");
+      setForm({ name: "", email: "", message: "" });
+      setIsSubmitting(false);
+    }, 1000);
   };
 
   return (
-    <main className="bg-[#F6F6F6] text-[#8B3A4F] min-h-screen px-6 py-24">
-
-      <div className="max-w-3xl mx-auto">
-
-        {/* 🧠 Header */}
-        <h1 className="text-5xl font-bold">
-          Contact Us
-        </h1>
-
-        <p className="mt-4 text-[#9CA3AF]">
-          Have questions, ideas, or want to collaborate? We’d love to hear from you.
-        </p>
-
-        {/* 📩 Form */}
-        <form onSubmit={handleSubmit} className="mt-12 space-y-6">
-
-          <div>
-            <label className="block text-sm text-[#9CA3AF]">Name</label>
-            <input
-              type="text"
-              name="name"
-              onChange={handleChange}
-              className="w-full mt-2 p-3 rounded-lg bg-[#E7DDDC] border border-[#1F2937] focus:border-[#8B3A4F] outline-none"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-[#9CA3AF]">Email</label>
-            <input
-              type="email"
-              name="email"
-              onChange={handleChange}
-              className="w-full mt-2 p-3 rounded-lg bg-[#E7DDDC] border border-[#1F2937] focus:border-[#60A5FA] outline-none"
-              required
-            />
-          </div>
-
-          <div>
-            <label className="block text-sm text-[#9CA3AF]">Message</label>
-            <textarea
-              name="message"
-              rows="5"
-              onChange={handleChange}
-              className="w-full mt-2 p-3 rounded-lg bg-[#E7DDDC] border border-[#1F2937] focus:border-[#60A5FA] outline-none"
-              required
-            ></textarea>
-          </div>
-
-          <button
-            type="submit"
-            className="bg-[#8B3A4F] text-black px-6 py-3 rounded-full font-medium hover:bg-[#93C5FD] transition"
-          >
-            Send Message →
-          </button>
-
-        </form>
-
-        {/* 📧 Extra */}
-        <div className="mt-12 text-[#9CA3AF] text-sm">
-          Or reach us at: <span className="text-white">hello@attira.com</span>
+    <section className="relative min-h-screen overflow-hidden pt-36 bg-[#F6F6F6]">
+      <div className="max-w-3xl mx-auto px-6">
+        {/* Header */}
+        <div className="text-center mb-16">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#8B3A4F]">
+            Contáctanos
+          </h1>
+          <p className="mt-6 text-lg text-[#4B5563] max-w-md mx-auto">
+            ¿Tienes alguna duda, idea o quieres colaborar con nosotros? 
+            Nos encantaría escucharte.
+          </p>
         </div>
 
-      </div>
+        {/* Formulario con tarjeta */}
+        <div className="bg-white rounded-3xl shadow-sm p-10 md:p-12 border border-[#E7DDDC]">
+          <form onSubmit={handleSubmit} className="space-y-8">
+            <div>
+              <label className="block text-sm text-[#9CA3AF] mb-2 font-medium">
+                Nombre completo
+              </label>
+              <input
+                type="text"
+                name="name"
+                value={form.name}
+                onChange={handleChange}
+                className="w-full p-4 rounded-2xl bg-[#F6F6F6] border border-[#E7DDDC] 
+                           focus:border-[#8B3A4F] outline-none transition-all text-[#131416]"
+                placeholder="Escribe tu nombre"
+                required
+              />
+            </div>
 
-    </main>
+            <div>
+              <label className="block text-sm text-[#9CA3AF] mb-2 font-medium">
+                Correo electrónico
+              </label>
+              <input
+                type="email"
+                name="email"
+                value={form.email}
+                onChange={handleChange}
+                className="w-full p-4 rounded-2xl bg-[#F6F6F6] border border-[#E7DDDC] 
+                           focus:border-[#8B3A4F] outline-none transition-all text-[#131416]"
+                placeholder="tu@email.com"
+                required
+              />
+            </div>
+
+            <div>
+              <label className="block text-sm text-[#9CA3AF] mb-2 font-medium">
+                Mensaje
+              </label>
+              <textarea
+                name="message"
+                value={form.message}
+                onChange={handleChange}
+                rows="6"
+                className="w-full p-4 rounded-3xl bg-[#F6F6F6] border border-[#E7DDDC] 
+                           focus:border-[#8B3A4F] outline-none resize-y min-h-[160px] transition-all text-[#131416]"
+                placeholder="Cuéntanos cómo podemos ayudarte..."
+                required
+              ></textarea>
+            </div>
+
+            <button
+              type="submit"
+              disabled={isSubmitting}
+              className="w-full bg-[#8B3A4F] hover:bg-[#653F3C] disabled:bg-gray-400 
+                         text-white py-4 rounded-full font-semibold text-lg 
+                         transition-all active:scale-[0.985]"
+            >
+              {isSubmitting ? "Enviando mensaje..." : "Enviar mensaje →"}
+            </button>
+          </form>
+        </div>
+
+        {/* Contacto alternativo */}
+        <div className="mt-12 text-center pb-16">
+          <p className="text-[#9CA3AF] text-sm">O escríbenos directamente a:</p>
+          <a 
+            href="mailto:hello@attira.com"
+            className="mt-2 inline-block text-[#8B3A4F] hover:text-[#653F3C] font-medium text-lg transition-colors"
+          >
+            hello@attira.com
+          </a>
+        </div>
+      </div>
+    </section>
   );
 }
