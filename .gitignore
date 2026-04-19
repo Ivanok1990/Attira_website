@@ -14,6 +14,8 @@ dist/
 
 # production
 /build
+.env
+opencode.json
 
 # misc
 .DS_Store

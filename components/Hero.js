@@ -39,7 +39,7 @@ export default function Hero() {
           </div>
 
           {/* Right Column: Visual Mockup (Phone Style) */}
-          <div className="relative hidden lg:flex justify-center">
+          <div className="relative flex justify-center lg:justify-center order-first lg:order-last">
             {/* Phone Wrapper - Phone size with hover animation */}
             <div className="relative w-[320px] h-[600px] rounded-[40px] bg-black p-[6px] shadow-2xl 
                 transform rotate-[6deg] hover:rotate-0 hover:scale-105 
