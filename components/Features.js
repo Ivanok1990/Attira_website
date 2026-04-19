@@ -13,7 +13,7 @@ export default function Features() {
     {
       icon: "🧠",
       title: "Aprende y mejora contigo",
-      desc: "Cuanto más la uses, más inteligente se vuelve. Recuerda qué te gusta, qué no, y se adapta a tu vida.",
+      desc: "Cuanto más la usas, más inteligente se vuelve. Recuerda qué te gusta, qué no, y se adapta a tu vida.",
     },
     {
       icon: "📱",
@@ -23,14 +23,14 @@ export default function Features() {
   ];
 
   return (
-    <section className="bg-white py-24">
-      <div className="max-w-6xl mx-auto px-6">
+    <section className="bg-white py-16 md:py-20 lg:py-24">
+      <div className="max-w-7xl mx-auto px-5 md:px-10">
 
-        <div className="text-center mb-16">
-          <h2 className="text-5xl md:text-6xl font-bold text-[#131416] leading-tight">
+        <div className="text-center mb-16 space-y-4">
+          <h2 className="text-2xl md:text-3xl lg:text-4xl font-bold tracking-[-0.01em] font-display">
             La forma inteligente<br />de vestir cada día
           </h2>
-          <p className="mt-6 text-xl text-[#555] max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-slate-600 leading-relaxed max-w-2xl mx-auto">
             No es solo otra app de moda. Es tu asistente personal que elimina la frustración de decidir qué ponerte.
           </p>
         </div>
@@ -39,17 +39,17 @@ export default function Features() {
           {features.map((feature, i) => (
             <div 
               key={i} 
-              className="group bg-[#F8F5F4] hover:bg-white border border-transparent hover:border-[#E7DDDC] p-10 rounded-3xl transition-all duration-300 hover:shadow-xl"
+              className="bg-white border border-slate-100 rounded-2xl p-6 shadow-[0_8px_30px_rgb(0,0,0,0.04)] hover:shadow-lg transition-shadow duration-300"
             >
-              <div className="text-5xl mb-6 transition-transform group-hover:scale-110">
+              <div className="text-5xl mb-6">
                 {feature.icon}
               </div>
               
-              <h3 className="text-2xl font-semibold text-[#131416] mb-4">
+              <h3 className="text-xl md:text-2xl font-semibold font-display">
                 {feature.title}
               </h3>
               
-              <p className="text-[#555] leading-relaxed text-[17px]">
+              <p className="mt-4 text-base md:text-lg text-slate-600 leading-relaxed">
                 {feature.desc}
               </p>
             </div>

@@ -68,7 +68,7 @@ export default function AboutPage() {
             <span className="text-2xl">✨</span>
             <span className="text-sm font-medium text-[#653F3C] tracking-wide">Quiénes somos</span>
           </div>
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight">
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight font-display">
             About ATTIRA
           </h1>
           <div className="w-20 h-1 bg-[#8B3A4F] rounded-full mt-6 mb-8"></div>
@@ -82,7 +82,7 @@ export default function AboutPage() {
         <div className="mt-20">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">🎯</span>
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl font-semibold font-display">
               Nuestra Misión
             </h2>
           </div>
@@ -101,7 +101,7 @@ export default function AboutPage() {
         <div className="mt-20">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">🚀</span>
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl font-semibold font-display">
               Lo que hacemos
             </h2>
           </div>
@@ -111,7 +111,7 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-[#8B3A4F]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#8B3A4F]/20 transition">
                 <span className="text-2xl">👔</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2">Estilismo con IA</h3>
+              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2 font-display">Estilismo con IA</h3>
               <p className="text-[#6B7280] leading-relaxed">
                 Genera outfits personalizados basados en tu armario, preferencias y el contexto del día.
               </p>
@@ -121,7 +121,7 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-[#8B3A4F]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#8B3A4F]/20 transition">
                 <span className="text-2xl">🎨</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2">Personalización</h3>
+              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2 font-display">Personalización</h3>
               <p className="text-[#6B7280] leading-relaxed">
                 Aprende de tu comportamiento para mejorar las recomendaciones con el tiempo.
               </p>
@@ -131,7 +131,7 @@ export default function AboutPage() {
               <div className="w-12 h-12 bg-[#8B3A4F]/10 rounded-xl flex items-center justify-center mb-4 group-hover:bg-[#8B3A4F]/20 transition">
                 <span className="text-2xl">⚡</span>
               </div>
-              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2">Decisión Rápida</h3>
+              <h3 className="text-xl font-semibold text-[#8B3A4F] mb-2 font-display">Decisión Rápida</h3>
               <p className="text-[#6B7280] leading-relaxed">
                 Te ayuda a decidir más rápido, más inteligente y con total confianza.
               </p>
@@ -146,7 +146,7 @@ export default function AboutPage() {
               <span className="text-2xl">👥</span>
               <span className="text-sm font-medium text-[#653F3C] tracking-wide">CONOCE LAS MENTES DETRÁS DE</span>
             </div>
-            <h2 className="text-4xl md:text-5xl font-bold text-[#8B3A4F]">
+            <h2 className="text-4xl md:text-5xl font-bold text-[#8B3A4F] font-display">
               ATTIRA
             </h2>
             <p className="mt-4 text-[#6B7280] max-w-2xl mx-auto">
@@ -176,7 +176,7 @@ export default function AboutPage() {
                 
                 {/* Información */}
                 <div className="p-6 text-center">
-                  <h3 className="text-xl font-bold text-[#8B3A4F] group-hover:text-[#653F3C] transition-colors">
+                  <h3 className="text-xl font-bold text-[#8B3A4F] group-hover:text-[#653F3C] transition-colors font-display">
                     {member.name}
                   </h3>
                   <p className="text-sm font-medium text-[#9CA3AF] mt-1 uppercase tracking-wide">
@@ -196,7 +196,7 @@ export default function AboutPage() {
         <div className="mt-28">
           <div className="flex items-center gap-3 mb-6">
             <span className="text-3xl">🌎</span>
-            <h2 className="text-3xl md:text-4xl font-semibold">
+            <h2 className="text-3xl md:text-4xl font-semibold font-display">
               Nuestra Visión
             </h2>
           </div>

@@ -1,44 +1,55 @@
 export default function CTA() {
   return (
-    <section className="bg-[#F6F6F6] py-28  text-center">
-      <div className="max-w-3xl mx-auto px-6">
+    <section className="bg-[#F6F6F6] py-24 lg:py-32 relative overflow-hidden">
+      {/* Decorative Glow - Inspired by Scale.com */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[300px] bg-[#8B3A4F]/20 blur-[120px] pointer-events-none rounded-full" />
+
+      <div className="max-w-4xl mx-auto px-6 relative z-10 text-center">
         
-        <h2 className="text-5xl md:text-6xl font-bold text-[#131416] leading-tight">
-          ¿Listo para vestir mejor<br />sin esfuerzo?
+        {/* Eyebrow Label */}
+        <span className="text-[#8B3A4F] font-bold tracking-[0.3em] uppercase text-xs mb-6 block">
+          Comienza hoy
+        </span>
+
+        <h2 className="text-4xl md:text-6xl font-bold tracking-tighter leading-[1.1] font-display">
+          Tu mejor versión,<br />
+          <span className="text-[#8B3A4F]">sin esfuerzo diario.</span>
         </h2>
 
-        <p className="mt-6 text-xl text-[#4B5563] max-w-lg mx-auto">
-          Deja de perder tiempo decidiendo qué ponerte. 
-          ATTIRA analiza tu ropa y genera outfits perfectos para ti todos los días.
+        <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed max-w-xl mx-auto font-body">
+          Únete a los usuarios que ya han recuperado su tiempo. ATTIRA genera el outfit perfecto basado en tu armario real.
         </p>
 
-        {/* Botón principal */}
-        <div className="mt-10">
+        {/* Primary CTA Area */}
+        <div className="mt-12 flex flex-col items-center gap-6">
           <button 
-            className="bg-[#8B3A4F] hover:bg-[#653F3C] text-white px-10 py-5 rounded-full 
-                       font-semibold text-lg transition-all active:scale-95 shadow-lg hover:shadow-xl"
+            className="group relative bg-[#8B3A4F] text-white h-14 px-10 rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(139,58,79,0.3)] hover:shadow-[0_0_50px_rgba(139,58,79,0.5)]"
           >
-            Crear cuenta gratis →
+            Descargar App Gratis —&gt;
           </button>
+          
+          {/* Micro-Trust Info */}
+          <div className="flex items-center gap-4 text-sm font-medium text-slate-500">
+            <span>Prueba 14 días gratis</span>
+            <span className="w-1 h-1 bg-slate-700 rounded-full" />
+            <span>Cancela cuando quieras</span>
+          </div>
         </div>
 
-        {/* Texto de confianza */}
-        <div className="mt-8 flex flex-col items-center gap-3 text-sm text-[#6B7280]">
-          <p className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> 
-            Sin tarjeta de crédito • Prueba 14 días gratis
-          </p>
-          <p className="flex items-center gap-2">
-            <span className="text-green-500">✓</span> 
-            Cancela cuando quieras
-          </p>
-        </div>
-
-        {/* Trust signals */}
-        <div className="mt-12 pt-8 border-t border-[#E7DDDC] flex flex-wrap justify-center gap-x-8 gap-y-4 text-xs text-[#9CA3AF]">
-          <div>🔒 Tus datos están seguros</div>
-          <div>🌍 Funciona con cualquier guardarropa</div>
-          <div>💡 IA entrenada para estilo real</div>
+        {/* Footer Trust Signals - Refined Grid */}
+        <div className="mt-20 pt-10 border-t border-white/10 grid grid-cols-1 md:grid-cols-3 gap-8 text-xs font-bold uppercase tracking-widest text-slate-700">
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-[#8B3A4F]">SHIELD</span>
+            DATOS PROTEGIDOS
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-[#8B3A4F]">GLOBAL</span>
+            CUALQUIER ARMARIO
+          </div>
+          <div className="flex items-center justify-center gap-2">
+            <span className="text-[#8B3A4F]">SMART</span>
+            IA ENTRENADA
+          </div>
         </div>
 
       </div>

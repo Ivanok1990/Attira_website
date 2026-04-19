@@ -1,70 +1,95 @@
 export default function Solution() {
   return (
-    <section className="bg-[#F6F6F6] py-24 ">
-      <div className="max-w-6xl mx-auto px-6">
-        
-        {/* Encabezado */}
-        <div className="text-center mb-16">
-          <h2 className="text-4xl md:text-5xl font-bold text-[#131416] leading-tight">
-            ATTIRA toma decisiones por ti,<br />
-            <span className="text-[#8B3A4F]">exactamente a tu estilo</span>
+    <section className="bg-[#F6F6F6] py-32 lg:py-40">
+      <div className="max-w-7xl mx-auto px-6 md:px-10">
+
+        {/* Header */}
+        <header className="max-w-3xl mb-24">
+          <h2 className="text-4xl md:text-6xl font-bold tracking-tight leading-[1.1] text-slate-900">
+            ATTIRA decide por ti,
+            <br />
+            <span className="text-[#8B3A4F] italic">
+              pero sigue siendo tu estilo
+            </span>
           </h2>
-          
-          <p className="mt-6 text-[#9CA3AF] text-lg max-w-2xl mx-auto">
-            Olvídate de pasar minutos (o horas) frente al armario. 
-            ATTIRA analiza tu ropa real, tu estilo personal y el contexto del día 
-            para generar outfits perfectos en segundos.
+
+          <p className="mt-8 text-lg md:text-xl text-slate-600 leading-relaxed">
+            Analiza tu ropa real, aprende tus preferencias y entiende el contexto
+            para generar combinaciones que realmente funcionan.
           </p>
+        </header>
+
+        {/* Main Layout */}
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-20 items-start">
+
+          {/* LEFT — Visual + Main Idea */}
+          <div className="lg:col-span-7">
+            <div className="relative overflow-hidden rounded-2xl h-[420px] flex items-center justify-center bg-gradient-to-br from-[#F6F6F6] to-[#EDEDED] mb-10" >
+              <img
+                src="/"
+                alt=""
+                className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+              />
+            </div>
+
+            <div className="max-w-md">
+              <span className="text-xs tracking-[0.3em] text-[#8B3A4F] block mb-4">
+                / — Guardarropa
+              </span>
+
+              <h3 className="text-2xl md:text-3xl font-semibold text-slate-900 mb-4">
+                Entiende exactamente lo que tienes
+              </h3>
+
+              <p className="text-slate-600 text-lg leading-relaxed">
+                ATTIRA analiza prendas, colores y combinaciones para trabajar con tu armario real, no con ideas genéricas.
+              </p>
+            </div>
+          </div>
+
+          {/* RIGHT — Supporting */}
+          <div className="lg:col-span-5 space-y-16 pt-8">
+
+            <div className="border-t border-slate-200 pt-6">
+              <span className="text-xs tracking-[0.3em] text-[#8B3A4F] block mb-3">
+                / — Estilo
+              </span>
+
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">
+                Aprende cómo te gusta vestirte
+              </h4>
+
+              <p className="text-slate-600 leading-relaxed">
+                Cada interacción mejora las recomendaciones. Se adapta a ti con el uso.
+              </p>
+            </div>
+
+            <div className="border-t border-slate-200 pt-6">
+              <span className="text-xs tracking-[0.3em] text-[#8B3A4F] block mb-3">
+                / — Contexto
+              </span>
+
+              <h4 className="text-xl font-semibold text-slate-900 mb-2">
+                Considera el día completo
+              </h4>
+
+              <p className="text-slate-600 leading-relaxed">
+                Clima, ocasión y nivel de formalidad para que cada outfit tenga sentido.
+              </p>
+            </div>
+
+          </div>
         </div>
 
-        {/* Contenido visual con cards */}
-        <div className="grid md:grid-cols-3 gap-8">
+        {/* Outcome */}
+        <div className="mt-24 border-t border-slate-200 pt-8 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
           
-          {/* Card 1 */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
-            <div className="w-14 h-14 bg-[#8B3A4F]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#8B3A4F] transition-colors">
-              <span className="text-3xl">👕</span>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#131416] mb-3">
-              Analiza tu guardarropa real
-            </h3>
-            <p className="text-[#4B5563]">
-              Subes fotos de tu ropa y ATTIRA entiende qué tienes, colores, estilos y cómo combinarlo todo.
-            </p>
-          </div>
+          <p className="text-sm tracking-[0.3em] uppercase text-slate-400">
+            Resultado
+          </p>
 
-          {/* Card 2 */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
-            <div className="w-14 h-14 bg-[#8B3A4F]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#8B3A4F] transition-colors">
-              <span className="text-3xl">👤</span>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#131416] mb-3">
-              Conoce tu estilo personal
-            </h3>
-            <p className="text-[#4B5563]">
-              Aprende de tus gustos, ocasiones favoritas y feedback para generar sugerencias cada vez más precisas.
-            </p>
-          </div>
-
-          {/* Card 3 */}
-          <div className="bg-white rounded-3xl p-8 shadow-sm hover:shadow-xl transition-all duration-300 group">
-            <div className="w-14 h-14 bg-[#8B3A4F]/10 rounded-2xl flex items-center justify-center mb-6 group-hover:bg-[#8B3A4F] transition-colors">
-              <span className="text-3xl">📍</span>
-            </div>
-            <h3 className="text-2xl font-semibold text-[#131416] mb-3">
-              Adapta al contexto del día
-            </h3>
-            <p className="text-[#4B5563]">
-              Clima, ocasión (trabajo, cita, viaje), nivel de formalidad… ATTIRA lo tiene todo en cuenta.
-            </p>
-          </div>
-
-        </div>
-
-        {/* Frase final de refuerzo */}
-        <div className="text-center mt-16">
-          <p className="text-[#8B3A4F] font-medium text-lg">
-            Resultado: outfits que realmente quieres usar, en menos de 60 segundos.
+          <p className="text-xl md:text-3xl font-medium text-[#8B3A4F] italic">
+            Outfits listos en menos de 60 segundos
           </p>
         </div>
 

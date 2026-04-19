@@ -14,7 +14,7 @@ export default function BlogPage() {
           <p className="text-sm tracking-widest text-[#8B3A4F] uppercase mb-3">
             Estilo & Tendencias
           </p>
-          <h1 className="text-5xl font-bold text-[#131416] mb-4">
+          <h1 className="text-5xl font-bold text-[#131416] mb-4 font-display">
             Blog de Moda
           </h1>
           <p className="text-[#653F3C] text-lg">

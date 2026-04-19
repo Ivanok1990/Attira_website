@@ -17,7 +17,7 @@ export default function BlogCard({ post }) {
         </p>
 
         {/* Título */}
-        <h2 className="text-xl font-bold text-[#131416] mb-3 leading-snug">
+        <h2 className="text-xl font-bold text-[#131416] mb-3 leading-snug font-display">
           <Link href={`/blog/${post.slug}`} className="hover:text-[#8B3A4F] transition-colors">
             {post.title}
           </Link>

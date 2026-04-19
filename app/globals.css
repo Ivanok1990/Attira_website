@@ -1,6 +1,5 @@
 @import "tailwindcss";
 
-/* Forzamos modo claro de forma agresiva */
 :root {
   color-scheme: light !important;
   --background: #F6F6F6;
@@ -13,6 +12,24 @@
   --color-background: #F6F6F6;
   --color-surface: #F6F1EE;
   --color-accent: #8B3A4F;
+}
+
+@layer base {
+  h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-display, 'Playfair Display', serif);
+  }
+  
+  body {
+    font-family: var(--font-sans, 'Inter', sans-serif);
+  }
+}
+
+.font-display {
+  font-family: 'Playfair Display', serif;
+}
+
+.font-body {
+  font-family: 'Inter', sans-serif;
 }
 
 /* Reglas fuertes para eliminar el negro */

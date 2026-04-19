@@ -36,7 +36,7 @@ export default function PostPage({ params }) {
               day: 'numeric',
             })}
           </p>
-          <h1 className="text-4xl md:text-5xl font-bold text-[#131416] leading-tight">
+          <h1 className="text-4xl md:text-5xl font-bold text-[#131416] leading-tight font-display">
             {post.title}
           </h1>
           {post.excerpt && (

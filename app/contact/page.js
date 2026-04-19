@@ -35,7 +35,7 @@ export default function ContactPage() {
       <div className="max-w-3xl mx-auto px-6">
         {/* Header */}
         <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-6xl font-bold text-[#8B3A4F]">
+          <h1 className="text-5xl md:text-6xl font-bold text-[#8B3A4F] font-display">
             Contáctanos
           </h1>
           <p className="mt-6 text-lg text-[#4B5563] max-w-md mx-auto">
