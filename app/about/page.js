@@ -9,6 +9,8 @@ import AboutCTA from "@/components/about/AboutCTA";
 export default function AboutPage() {
   return (
     <div className="bg-[#F6F6F6]">
+      <div className="absolute right-0 bottom-20 w-80 h-80 bg-[#8B3A4F]/10 blur-3xl rounded-full" />
+
       <AboutHero />
       <AboutMission />
       <AboutVision />

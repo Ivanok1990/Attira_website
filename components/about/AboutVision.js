@@ -1,6 +1,6 @@
 export default function AboutVision() {
   return (
-    <section className="py-32 lg:py-48 bg-[#F6F6F6] border-y border-slate-100">
+    <section className="pt-16 pb-32 lg:pt-20 lg:pb-40 bg-[#F6F6F6] border-y border-slate-100">
       <div className="max-w-7xl mx-auto px-6 md:px-10">
         <div className="grid lg:grid-cols-12 gap-12 lg:gap-24 items-start">
           

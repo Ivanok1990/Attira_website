@@ -5,49 +5,49 @@ import Image from "next/image";
       name: "Ainhoa Ramos",
       role: "CEO & Product Manager",
       description: "La visión detrás de ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/ainhoa_attira_team.webp",
       alt: "Ainhoa Ramos"
     },
     {
       name: "Patrick Solis",
       role: "Chief Technology Officer",
       description: "La mente detrás de la ingeniería de ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/patrick_attira_team.webp",
       alt: "Patrick Solis"
     },
     {
       name: "Faviana Richters",
       role: "Chief Marketing Officer",
       description: "La estrategia detrás de ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/faviana_attira_team.webp",
       alt: "Faviana Richters"
     },
     {
       name: "Edlin González",
       role: "UI/UX Designer & Product Support",
       description: "Donde ATTIRA cobra vida",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/edlin_attira_team.webp",
       alt: "Edlin González"
     },
     {
       name: "Roberto Espinoza",
       role: "Finance & Operations Manager",
       description: "La estructura financiera detrás de ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/roberto_attira_team.webp",
       alt: "Roberto Espinoza"
     },
     {
       name: "Luis Saravia",
       role: "Full Stack Developer",
       description: "Construyendo la plataforma de ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/luis_attira_team.webp",
       alt: "Luis Saravia"
     },
     {
       name: "Omar Quintanilla",
       role: "Software Developer",
       description: "Construyendo la experiencia ATTIRA",
-      image: "/images/team/faviana-richters.png",
+      image: "/images/team/omar_attira_team.webp",
       alt: "Omar Quintanilla"
     }
   ];

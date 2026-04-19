@@ -1,10 +1,10 @@
 export default function AboutHero() {
   return (
-    <section className="relative pt-40 pb-24 overflow-hidden">
+    <section className="relative pt-40 pb-24">
       
       {/* Background */}
       <div className="absolute left-0 top-40 w-96 h-96 bg-[#653F3C]/20 blur-3xl rounded-full" />
-      <div className="absolute right-0 bottom-20 w-80 h-80 bg-[#8B3A4F]/10 blur-3xl rounded-full" />
+      
 
       <div className="relative max-w-6xl mx-auto px-6 md:px-10">
 
@@ -15,8 +15,9 @@ export default function AboutHero() {
             </span>
           </div>
 
-          <h1 className="text-5xl md:text-6xl font-bold tracking-tight font-display text-[#8B3A4F]">
-            Acerca de  ATTIRA
+          <h1 className="text-5xl md:text-6xl font-bold tracking-tight font-display">
+            Acerca de  
+            <span className="text-[#8B3A4F]"> ATTIRA</span>
           </h1>
 
           <div className="w-20 h-1 bg-[#8B3A4F] rounded-full mt-6 mb-8" />
