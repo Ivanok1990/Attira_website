@@ -25,6 +25,12 @@ export default function Header() {
             Inicio
           </Link>
           <Link 
+            href="/about" 
+            className="text-slate-600 hover:text-[#8B3A4F] transition-colors"
+          >
+            About
+          </Link>
+          <Link 
             href="/blog" 
             className="text-slate-600 hover:text-[#8B3A4F] transition-colors"
           >
@@ -35,12 +41,6 @@ export default function Header() {
             className="text-slate-600 hover:text-[#8B3A4F] transition-colors"
           >
             Contacto
-          </Link>
-          <Link 
-            href="/about" 
-            className="text-slate-600 hover:text-[#8B3A4F] transition-colors"
-          >
-            About
           </Link>
         </div>
 
