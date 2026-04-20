@@ -1,17 +1,22 @@
-import { getAllPosts, getPostBySlug } from '@/lib/posts'
-import ReactMarkdown from 'react-markdown'
+import { getPostBySlug } from '@/lib/posts'
 import { notFound } from 'next/navigation'
 import Link from 'next/link'
 
+export const dynamicParams = false
+
 export async function generateStaticParams() {
-  const posts = getAllPosts()
+  const posts = getAllPosts()           // ← Necesitas importar getAllPosts
   return posts.map((post) => ({
     slug: post.slug,
   }))
 }
 
-export default function PostPage({ params }) {
-  const post = getPostBySlug(params.slug)
+// ← Importa getAllPosts aquí también
+import { getAllPosts } from '@/lib/posts'
+
+export default async function PostPage({ params }) {
+  const { slug } = await params        // ← Esto es lo más importante
+  const post = getPostBySlug(slug)
 
   if (!post) {
     notFound()
@@ -56,10 +61,10 @@ export default function PostPage({ params }) {
           prose-li:text-[#3D2C2C]
           prose-blockquote:border-l-[#8B3A4F] prose-blockquote:text-[#653F3C] prose-blockquote:bg-[#F6F1EE] prose-blockquote:rounded-r-lg prose-blockquote:px-4 prose-blockquote:py-1
           prose-hr:border-[#e5d8d3]">
-          <ReactMarkdown>{post.content}</ReactMarkdown>
+          
+          {post.content}
         </div>
 
-        {/* Vuelta al blog */}
         <div className="mt-10 text-center">
           <Link
             href="/blog"

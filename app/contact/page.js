@@ -111,10 +111,10 @@ export default function ContactPage() {
         <div className="mt-12 text-center pb-16">
           <p className="text-[#9CA3AF] text-sm">O escríbenos directamente a:</p>
           <a 
-            href="mailto:hello@attira.com"
+            href="mailto:contact@attiraai.com"
             className="mt-2 inline-block text-[#8B3A4F] hover:text-[#653F3C] font-medium text-lg transition-colors"
           >
-            hello@attira.com
+            contact@attiraai.com
           </a>
         </div>
       </div>

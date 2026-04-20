@@ -40,7 +40,7 @@ export default function Footer() {
             <h3 className="text-xl font-semibold font-display mb-5">Conéctate</h3>
             
             <div className="text-slate-400 space-y-2 mb-8">
-              <p>hello@attira.com</p>
+              <p>contact@attiraai.com</p>
             </div>
 
             {/* Instagram */}

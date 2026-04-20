@@ -24,11 +24,12 @@ export default function Solution() {
 
           {/* LEFT — Visual + Main Idea */}
           <div className="lg:col-span-7">
-            <div className="relative overflow-hidden rounded-2xl h-[420px] flex items-center justify-center bg-gradient-to-br from-[#F6F6F6] to-[#EDEDED] mb-10" >
+            <div className="relative overflow-hidden rounded-2xl h-[600px] md:h-[600px] lg:h-[600px] mb-10">
               <img
-                src="/"
-                alt=""
-                className="w-full h-full object-cover transition-transform duration-700 hover:scale-[1.03]"
+                src="/images/hero/solution3.webp"
+                alt="ATTIRA analizando tu guardarropa"
+                className="w-full h-full object-contain p-4 md:p-8 lg:p-12 transition-transform duration-700 hover:scale-[1.02]"
+                loading="eager"
               />
             </div>
 
@@ -83,7 +84,6 @@ export default function Solution() {
 
         {/* Outcome */}
         <div className="mt-24 border-t border-slate-200 pt-8 flex flex-col md:flex-row md:justify-between md:items-end gap-4">
-          
           <p className="text-sm tracking-[0.3em] uppercase text-slate-400">
             Resultado
           </p>
