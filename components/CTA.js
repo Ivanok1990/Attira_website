@@ -20,8 +20,9 @@ export default function CTA() {
           Únete a los usuarios que ya han recuperado su tiempo. ATTIRA genera el outfit perfecto basado en tu armario real.
         </p>
 
-        {/* Primary CTA Area */}
+          
         <div className="mt-12 flex flex-col items-center gap-6">
+          {/*
           <a 
   href="https://attiraai.com/" 
   target="_blank"
@@ -30,6 +31,7 @@ export default function CTA() {
 >
   Descargar App Gratis →
 </a>
+*/}
           
           {/* Micro-Trust Info */}
           <div className="flex items-center gap-4 text-sm font-medium text-slate-500">
