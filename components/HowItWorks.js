@@ -26,14 +26,14 @@ export default function HowItWorks() {
       title: "Genera outfits con IA",
       description:
         "Recibe sugerencias diarias basadas en el clima y tu agenda.",
-      image: "/images/step3.webp",
+      image: "/images/app_mockups/attira_outfit_generation_result_mockup.webp",
     },
     {
       number: "4",
       title: "Tu armario, organizado",
       description:
         "Visualiza todo lo que tienes y planifica tus looks.",
-      image: "/images/step4.webp",
+      image: "/images/app_mockups/attira_wardrobe_organization_mockup.jpeg",
     },
   ];
 
