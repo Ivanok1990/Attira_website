@@ -24,7 +24,7 @@ export default function Header() {
           {/* Logo - MÁS GRANDE */}
           <Link href="/" className="relative w-36 md:w-44 h-12 md:h-14">
             <Image 
-              src="/images/favicon.ico" 
+              src="/images/logo.webp" 
               alt="ATTIRA" 
               fill
               className="object-contain"

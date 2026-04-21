@@ -12,7 +12,7 @@ export default function Footer() {
           <div>
             <div className="relative w-44 h-12 mb-4">
               <Image 
-                src="/images/favicon.ico" 
+                src="/images/logo.webp" 
                 alt="ATTIRA" 
                 fill
                 className="object-contain"
