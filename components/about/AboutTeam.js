@@ -82,7 +82,7 @@ export default function AboutTeam() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="object-cover grayscale group-hover:grayscale-0 group- transition-all duration-700 ease-in-out"
                 />
               </div>
 

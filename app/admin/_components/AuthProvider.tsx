@@ -1,6 +1,6 @@
 'use client';
 
-import { createContext, useContext, useEffect, useState, createElement } from 'react';
+import { createContext, useContext, useEffect, useState, useRef, createElement } from 'react';
 import { createClient } from '@supabase/supabase-js';
 import { useRouter } from 'next/navigation';
 
@@ -36,12 +36,16 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
   const [user, setUser] = useState<User | null>(null);
   const [isAdmin, setIsAdmin] = useState(false);
   const [isLoading, setIsLoading] = useState(true);
+  const isChecking = useRef(false);
   const supabase = getSupabase();
 
   useEffect(() => {
     if (!supabase) return;
 
     const checkUser = async () => {
+      if (isChecking.current) return;
+      isChecking.current = true;
+      
       try {
         const { data: { user: sbUser } } = await supabase.auth.getUser();
         
@@ -60,6 +64,7 @@ export function AuthProvider({ children }: { children: React.ReactNode }) {
       } catch (e) {
         console.error('Auth check error:', e);
       } finally {
+        isChecking.current = false;
         setIsLoading(false);
       }
     };
