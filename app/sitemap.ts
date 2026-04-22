@@ -5,12 +5,12 @@ export default function sitemap(): MetadataRoute.Sitemap {
   const baseUrl = 
     process.env.NODE_ENV === 'development'
       ? 'http://localhost:3000'
-      : 'https://attirai.com'
+      : 'https://attiraai.com'
 
   const blogBaseUrl = 'https://www.attiraai.com'
 
   return [
-    // === Páginas del sitio principal (attirai.com) ===
+    // === Páginas del sitio principal (attiraai.com) ===
     {
       url: baseUrl,
       lastModified: new Date(),
