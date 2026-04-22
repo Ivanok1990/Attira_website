@@ -1,6 +1,6 @@
 # =============================================
 # robots.txt para ATTIRA
-# https://attirai.com
+# https://attiraai.com
 # =============================================
 
 User-agent: *
@@ -15,7 +15,7 @@ Disallow: /admin/
 Disallow: /dashboard/
 
 # Sitemap
-Sitemap: https://attirai.com/sitemap.xml
+Sitemap: https://attiraai.com/sitemap.xml
 
 # Crawl delay (ayuda a que Google no te rastree demasiado rápido)
 Crawl-delay: 1
