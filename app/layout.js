@@ -1,7 +1,6 @@
 import { Inter, Playfair_Display } from 'next/font/google'
 import './globals.css'
-import Header from '@/components/Header'
-import Footer from '@/components/Footer'
+import HeaderAndFooterWrapper from '@/components/HeaderAndFooterWrapper'
 
 const inter = Inter({ 
   subsets: ['latin'], 
@@ -33,15 +32,7 @@ export default function RootLayout({ children }) {
   return (
     <html lang="es" className="bg-[#F6F6F6]">
       <body className={`${inter.variable} ${playfair.variable} font-sans bg-[#F6F6F6] flex flex-col min-h-screen antialiased`}>
-        
-        {/* Corregido: solo mostrar Header una vez (estaba duplicado) */}
-        {!children?.toString().includes('/admin') && <Header />}
-        
-        <main className="grow">
-          {children}
-        </main>
-        
-        <Footer />
+        <HeaderAndFooterWrapper>{children}</HeaderAndFooterWrapper>
       </body>
     </html>
   )

@@ -29,7 +29,7 @@ export default function Hero() {
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
                <a 
-                  href="https://www.app.attiraai.com"
+                  href="https://app.attiraai.com/"
                   target="_blank"
                   rel="noopener noreferrer"
                   className="bg-[#8B3A4F] text-white min-h-[56px] px-10 rounded-2xl font-semibold shadow-lg shadow-[#8B3A4F]/20 hover:translate-y-[-2px] transition-all duration-300 active:scale-95 flex items-center justify-center whitespace-nowrap">
