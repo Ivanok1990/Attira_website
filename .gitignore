@@ -15,6 +15,7 @@ dist/
 /build
 .env
 opencode.json
+.next/
 
 # misc
 .DS_Store

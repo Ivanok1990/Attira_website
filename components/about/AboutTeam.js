@@ -45,8 +45,8 @@ import Image from "next/image";
     },
     {
       name: "Omar Quintanilla",
-      role: "Software Developer",
-      description: "Construyendo la experiencia ATTIRA",
+      role: "DevOps & Growth Engineer",
+      description: "La infraestructura y el crecimiento detrás de ATTIRA",
       image: "/images/team/omar_attira_team.webp",
       alt: "Omar Quintanilla"
     }
@@ -82,7 +82,7 @@ export default function AboutTeam() {
                   src={member.image}
                   alt={member.name}
                   fill
-                  className="object-cover grayscale group-hover:grayscale-0 group-hover:scale-105 transition-all duration-700 ease-in-out"
+                  className="object-cover grayscale group-hover:grayscale-0 transition-all duration-700 ease-in-out"
                 />
               </div>
 
