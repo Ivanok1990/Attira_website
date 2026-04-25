@@ -1,6 +1,7 @@
 import { getOverviewStats, getDailyStats, getOccasionStats, getTopUsers } from '@/lib/admin-queries';
 import { MetricCard } from '../_components/MetricCard';
 import { BarChart } from '../_components/BarChart';
+import { AdminTable, Column } from '../_components/AdminTable';
 
 export const dynamic = 'force-dynamic';
 
@@ -18,82 +19,143 @@ export default async function DashboardPage() {
   const { overview, daily, occasions, topUsers } = await getStats();
 
   const userTrend = daily.map(d => ({
-    label: new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    label: new Date(d.date).toLocaleDateString('es-ES', { month: 'short', day: 'numeric' }),
     value: d.users,
     secondaryValue: d.generations,
     color: '#3b82f6',
-    secondaryColor: '#22c55e',
+    secondaryColor: '#10b981',
   }));
 
   const usageTrend = daily.map(d => ({
-    label: new Date(d.date).toLocaleDateString('en-US', { month: 'short', day: 'numeric' }),
+    label: new Date(d.date).toLocaleDateString('es-ES', { month: 'short', day: 'numeric' }),
     value: d.generations,
     secondaryValue: d.accepted,
     color: '#8b5cf6',
-    secondaryColor: '#22c55e',
+    secondaryColor: '#10b981',
   }));
 
+  const topUsersColumns: Column[] = [
+    { key: 'name', label: 'User' },
+    { key: 'generations', label: 'Generations' },
+    { key: 'wardrobe', label: 'Wardrobe Items' },
+  ];
+
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Dashboard Overview</h2>
-      
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
-        <MetricCard label="Total Users" value={overview.totalUsers} subtitle="Active accounts" />
-        <MetricCard label="Wardrobe Items" value={overview.totalWardrobe} subtitle="In closets" />
-        <MetricCard label="Saved Outfits" value={overview.totalOutfits} subtitle="Created by users" />
-        <MetricCard label="AI Generations" value={overview.totalGenerations} subtitle={`${overview.acceptanceRate}% accepted`} />
-        <MetricCard label="Active Today" value={overview.activeToday} subtitle="Signed in today" />
-        <MetricCard label="New This Week" value={overview.newUsersWeek} subtitle="Joined last 7 days" />
-        <MetricCard label="Accepted Outfits" value={overview.acceptedGenerations} subtitle="Saved to closet" />
-        <MetricCard label="Pending Review" value={overview.totalGenerations - overview.acceptedGenerations} subtitle="Not yet saved" />
-      </div>
-
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 mb-8">
-        <div className="bg-white border border-gray-200 rounded-lg p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">New Users (30 days)</h3>
-          <BarChart data={userTrend} height={180} stack />
+    <div className="flex flex-col min-h-screen p-6 bg-gray-50">
+      <div className="flex-1 space-y-8">
+        {/* Header con más espacio superior */}
+        <div className="pt-28">
+          <div className="flex flex-col lg:flex-row lg:items-center lg:justify-between gap-6">
+            <div>
+              <h1 className="text-4xl font-bold tracking-tighter text-gray-900">Overview</h1>
+              <p className="text-gray-500 mt-2 text-lg">Resumen general del sistema Attira</p>
+            </div>
+            <div className="text-sm text-gray-500 bg-white px-5 py-3 rounded-2xl border border-gray-100 shadow-sm">
+              Actualizado: {new Date().toLocaleString('es-ES', { 
+                day: 'numeric', 
+                month: 'long', 
+                year: 'numeric',
+                hour: '2-digit', 
+                minute: '2-digit' 
+              })}
+            </div>
+          </div>
         </div>
-        <div className="bg-white border border-gray-200 rounded-lg p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">AI Usage (30 days)</h3>
-          <BarChart data={usageTrend} height={180} stack />
-        </div>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <div className="bg-white border border-gray-200 rounded-lg p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Occasions</h3>
-          <BarChart 
-            data={occasions.slice(0, 8).map(o => ({
-              label: o.occasion,
-              value: o.count,
-              color: '#6366f1',
-            }))} 
-            height={200}
+        {/* Métricas Principales */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <MetricCard 
+            label="Total Usuarios" 
+            value={overview.totalUsers} 
+            subtitle="Cuentas registradas" 
+            icon="👥"
+          />
+          <MetricCard 
+            label="Prendas en Armarios" 
+            value={overview.totalWardrobe} 
+            subtitle="Items totales" 
+            icon="👕"
+          />
+          <MetricCard 
+            label="Outfits Generados" 
+            value={overview.totalOutfits} 
+            subtitle="Guardados por usuarios" 
+            icon="✨"
+          />
+          <MetricCard 
+            label="Generaciones IA" 
+            value={overview.totalGenerations} 
+            subtitle={`${overview.acceptanceRate || 0}% aceptados`} 
+            icon="🤖"
           />
         </div>
-        <div className="bg-white border border-gray-200 rounded-lg p-4">
-          <h3 className="text-lg font-semibold text-gray-900 mb-4">Top Users</h3>
-          <div className="space-y-3">
-            {topUsers.map((user, idx) => (
-              <div key={user.id} className="flex items-center justify-between p-3 bg-gray-50 rounded-lg">
-                <div className="flex items-center gap-3">
-                  <span className="w-6 h-6 flex items-center justify-center bg-blue-100 text-blue-700 rounded-full text-sm font-medium">
-                    {idx + 1}
-                  </span>
-                  <div>
-                    <p className="text-sm font-medium text-gray-900">{user.name}</p>
-                    <p className="text-xs text-gray-500">{user.email}</p>
-                  </div>
-                </div>
-                <div className="text-right">
-                  <p className="text-sm font-medium text-gray-900">{user.generations} gen{user.accepted > 0 && ` (${user.accepted} saved)`}</p>
-                  <p className="text-xs text-gray-500">{user.wardrobe} items</p>
-                </div>
-              </div>
-            ))}
-            {topUsers.length === 0 && (
-              <p className="text-sm text-gray-500 text-center py-4">No users yet</p>
-            )}
+
+        {/* Métricas Secundarias */}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          <MetricCard 
+            label="Activos Hoy" 
+            value={overview.activeToday} 
+            subtitle="Sesiones iniciadas hoy" 
+            icon="🔥"
+          />
+          <MetricCard 
+            label="Nuevos esta semana" 
+            value={overview.newUsersWeek} 
+            subtitle="Últimos 7 días" 
+            icon="📈"
+          />
+          <MetricCard 
+            label="Outfits Aceptados" 
+            value={overview.acceptedGenerations} 
+            subtitle="Guardados exitosamente" 
+            icon="✅"
+          />
+          <MetricCard 
+            label="Pendientes de Guardar" 
+            value={overview.totalGenerations - (overview.acceptedGenerations || 0)} 
+            subtitle="Generaciones sin acción" 
+            icon="⏳"
+            variant="warning"
+          />
+        </div>
+
+        {/* Gráficos con más espacio */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8 pt-4">
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Crecimiento de Usuarios (30 días)</h3>
+            <BarChart data={userTrend} height={360} stack />
+          </div>
+
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Uso de Inteligencia Artificial (30 días)</h3>
+            <BarChart data={usageTrend} height={360} stack />
+          </div>
+        </div>
+
+        {/* Sección Inferior */}
+        <div className="grid grid-cols-1 xl:grid-cols-2 gap-8">
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Ocasiones más usadas</h3>
+            <BarChart 
+              data={occasions.slice(0, 8).map(o => ({
+                label: o.occasion,
+                value: o.count,
+                color: '#6366f1',
+              }))} 
+              height={360}
+            />
+          </div>
+
+          <div className="bg-white rounded-3xl p-8 border border-gray-100 shadow-sm">
+            <h3 className="text-2xl font-semibold text-gray-900 mb-8">Usuarios más activos</h3>
+            <AdminTable
+                data={topUsers}
+                columns={topUsersColumns}
+                total={topUsers.length}
+                pages={1}
+                currentPage={1}
+                emptyMessage="Aún no hay usuarios activos"
+              />
           </div>
         </div>
       </div>

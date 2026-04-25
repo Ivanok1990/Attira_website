@@ -32,8 +32,8 @@ export default async function UsersPage({ searchParams }: { searchParams: { [key
   ];
 
   return (
-    <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Users CRM</h2>
+    <div >
+      <h2 className="text-2xl font-bold  text-gray-900  pb-32">Users CRM</h2>
       <AdminTable
         data={users}
         columns={columns}

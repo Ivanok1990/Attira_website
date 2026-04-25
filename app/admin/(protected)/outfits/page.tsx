@@ -46,7 +46,7 @@ export default async function OutfitsPage({ searchParams }: { searchParams: { [k
 
   return (
     <div>
-      <h2 className="text-2xl font-bold text-gray-900 mb-6">Outfits & Social</h2>
+      <h2 className="text-2xl font-bold pb-36 text-gray-900 mb-6">Outfits & Social</h2>
       
       <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 mb-8">
         <MetricCard label="Total Outfits" value={stats.totalOutfits} subtitle="Saved by users" />

@@ -1,3 +1,4 @@
+// app/admin/_components/BarChart.tsx
 interface BarChartProps {
   data: {
     label: string;
@@ -6,71 +7,76 @@ interface BarChartProps {
     color?: string;
     secondaryColor?: string;
   }[];
-  maxValue?: number;
   height?: number;
-  showValues?: boolean;
   stack?: boolean;
 }
 
-export function BarChart({ 
-  data, 
-  maxValue, 
-  height = 200,
-  showValues = true,
-  stack = false
-}: BarChartProps) {
-  const calculatedMax = maxValue || Math.max(...data.map(d => d.secondaryValue ? Math.max(d.value, d.secondaryValue) : d.value), 1);
-  
+export function BarChart({ data, height = 340, stack = false }: BarChartProps) {
+  const hasData = data.some(d => d.value > 0 || (d.secondaryValue || 0) > 0);
+  const maxValue = hasData 
+    ? Math.max(...data.map(d => Math.max(d.value, d.secondaryValue || 0)), 1)
+    : 10; // valor mínimo para que se vea algo
+
+  if (!hasData) {
+    return (
+      <div className="h-[340px] flex items-center justify-center text-gray-400 border border-dashed border-gray-200 rounded-2xl">
+        <div className="text-center">
+          <p className="text-5xl mb-3">📊</p>
+          <p className="font-medium">Sin datos aún</p>
+          <p className="text-sm mt-1">Los datos aparecerán cuando los usuarios empiecen a usar la app</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="w-full" style={{ height }}>
-      <div className="flex flex-col h-full justify-end gap-1">
+      <div className="flex flex-col h-full justify-end gap-2">
         {data.map((item, index) => {
-          const barHeight = stack
-            ? ((item.value + (item.secondaryValue || 0)) / calculatedMax) * 100
-            : (item.value / calculatedMax) * 100;
-          
+          const primaryHeight = (item.value / maxValue) * 100;
+          const secondaryHeight = item.secondaryValue 
+            ? (item.secondaryValue / maxValue) * 100 
+            : 0;
+
           return (
-            <div key={index} className="flex items-center gap-2">
-              <span className="w-20 text-xs text-gray-500 truncate text-right flex-shrink-0">
+            <div key={index} className="flex items-center gap-3 group">
+              <span className="w-16 text-xs text-gray-500 text-right flex-shrink-0">
                 {item.label}
               </span>
-              <div className="flex-1 h-6 bg-gray-100 rounded relative overflow-hidden">
+              <div className="flex-1 h-7 bg-gray-100 rounded-xl relative overflow-hidden">
                 {stack ? (
                   <>
                     <div 
-                      className="h-full absolute left-0 rounded"
+                      className="h-full absolute left-0 rounded-xl transition-all"
                       style={{ 
-                        width: `${(item.value / calculatedMax) * 100}%`,
+                        width: `${primaryHeight}%`,
                         backgroundColor: item.color || '#3b82f6'
                       }}
                     />
-                    {item.secondaryValue !== undefined && (
+                    {item.secondaryValue && (
                       <div 
-                        className="h-full absolute rounded"
+                        className="h-full absolute rounded-xl transition-all"
                         style={{ 
-                          left: `${(item.value / calculatedMax) * 100}%`,
-                          width: `${(item.secondaryValue! / calculatedMax) * 100}%`,
-                          backgroundColor: item.secondaryColor || '#22c55e'
+                          left: `${primaryHeight}%`,
+                          width: `${secondaryHeight}%`,
+                          backgroundColor: item.secondaryColor || '#10b981'
                         }}
                       />
                     )}
                   </>
                 ) : (
                   <div 
-                    className="h-full rounded"
+                    className="h-full rounded-xl transition-all"
                     style={{ 
-                      width: `${barHeight}%`,
+                      width: `${primaryHeight}%`,
                       backgroundColor: item.color || '#3b82f6'
                     }}
                   />
                 )}
-                {showValues && (
-                  <span className="absolute right-1 top-1/2 -translate-y-1/2 text-xs text-gray-600 font-medium">
-                    {item.secondaryValue !== undefined 
-                      ? `${item.value} / ${item.secondaryValue}`
-                      : item.value}
-                  </span>
-                )}
+              </div>
+              <div className="w-14 text-right text-xs font-medium text-gray-700">
+                {item.value}
+                {item.secondaryValue && <span className="text-gray-400">/{item.secondaryValue}</span>}
               </div>
             </div>
           );

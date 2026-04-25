@@ -10,24 +10,40 @@ export default function ContactPage() {
   });
 
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [showSuccessMessage, setShowSuccessMessage] = useState(false);
 
   const handleChange = (e) => {
     setForm({ ...form, [e.target.name]: e.target.value });
   };
 
-  const handleSubmit = (e) => {
+  const handleSubmit = async (e) => {
     e.preventDefault();
     setIsSubmitting(true);
 
-    console.log(form);
-    // Aquí conectarás Supabase, Resend u otro servicio
+    try {
+      const response = await fetch('/api/contact', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify(form),
+      });
 
-    // Simulación de envío
-    setTimeout(() => {
-      alert("¡Mensaje enviado! Te responderemos lo antes posible.");
-      setForm({ name: "", email: "", message: "" });
+      const data = await response.json();
+
+      if (response.ok) {
+        setForm({ name: "", email: "", message: "" });
+        setShowSuccessMessage(true);
+        setTimeout(() => setShowSuccessMessage(false), 5000); // Hide after 5 seconds
+      } else {
+        alert(`Error al enviar el mensaje: ${data.message || "Ha ocurrido un error."}`); // Keep alert for errors for now
+      }
+    } catch (error) {
+      console.error('Error submitting form:', error);
+      alert("Error al enviar el mensaje. Por favor, inténtalo de nuevo más tarde.");
+    } finally {
       setIsSubmitting(false);
-    }, 1000);
+    }
   };
 
   return (
@@ -46,6 +62,12 @@ export default function ContactPage() {
 
         {/* Formulario con tarjeta */}
         <div className="bg-white rounded-3xl shadow-sm p-10 md:p-12 border border-[#E7DDDC]">
+          {showSuccessMessage && (
+            <div className="bg-green-100 border-l-4 border-green-500 text-green-700 p-4 mb-6" role="alert">
+              <p className="font-bold">¡Mensaje enviado con éxito!</p>
+              <p>Gracias por contactarnos. Te responderemos lo antes posible.</p>
+            </div>
+          )}
           <form onSubmit={handleSubmit} className="space-y-8">
             <div>
               <label className="block text-sm text-[#9CA3AF] mb-2 font-medium">

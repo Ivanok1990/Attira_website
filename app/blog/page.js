@@ -42,9 +42,9 @@ export default function BlogPage() {
 
       
       <div className="text-center mt-20">
-        {/*
+        
         <a 
-          href="https://attiraai.com/" 
+          href="https://app.attiraai.com/" 
           target="_blank"
           rel="noopener noreferrer"
           className="inline-flex h-14 px-10 items-center justify-center bg-[#8B3A4F] text-white rounded-full font-bold text-lg transition-all duration-300 hover:scale-105 active:scale-95 shadow-[0_0_40px_rgba(139,58,79,0.3)] hover:shadow-[0_0_50px_rgba(139,58,79,0.5)]"
