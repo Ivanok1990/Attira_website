@@ -1,3 +1,4 @@
+
 export default function Hero() {
   return (
     <section className="relative min-h-screen bg-[#F6F6F6] overflow-hidden pt-32 md:pt-40 lg:pt-48">
@@ -27,9 +28,16 @@ export default function Hero() {
             </p>
 
             <div className="mt-10 flex flex-wrap items-center gap-5">
-              <button className="bg-[#8B3A4F] text-white h-14 px-10 rounded-2xl font-semibold shadow-lg shadow-[#8B3A4F]/20 hover:translate-y-[-2px] transition-all duration-300 active:scale-95">
-                Empieza gratis
-              </button>
+               <a 
+                  href="https://www.app.attiraai.com"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="bg-[#8B3A4F] text-white min-h-[56px] px-10 rounded-2xl font-semibold shadow-lg shadow-[#8B3A4F]/20 hover:translate-y-[-2px] transition-all duration-300 active:scale-95 flex items-center justify-center whitespace-nowrap">
+                    Empieza gratis
+  </a>
+
+              
+             
 
               <button className="group flex items-center gap-2 text-slate-900 font-semibold py-3 px-4 transition-colors">
                 Ver más

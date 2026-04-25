@@ -1,0 +1,21 @@
+# =============================================
+# robots.txt para ATTIRA
+# https://attirai.com
+# =============================================
+
+User-agent: *
+Allow: /
+
+# Bloqueamos rutas técnicas que no deben ser indexadas
+Disallow: /api/
+Disallow: /_next/
+Disallow: /_vercel/
+Disallow: /private/
+Disallow: /admin/
+Disallow: /dashboard/
+
+# Sitemap
+Sitemap: https://attirai.com/sitemap.xml
+
+# Crawl delay (ayuda a que Google no te rastree demasiado rápido)
+Crawl-delay: 1
